@@ -4,7 +4,7 @@ import config as cf
 class Dot:
 
     def __init__(self, surface, x, y):
-        self.x, self.y = 0, 0
+        self.x, self.y = x, y
         self.surface = surface
     
     def draw(self):
