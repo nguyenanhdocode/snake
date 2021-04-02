@@ -2,6 +2,7 @@ import pygame
 import os
 import config as cf
 from snake import Snake
+from food import Food
 
 pygame.init()
 
@@ -10,7 +11,9 @@ surface = pygame.display.set_mode((cf.WINDOW_WIDTH, cf.WINDOW_HEIGHT))
 # new snake
 snake = Snake(surface)
 
-# key status
+# new food
+food = Food(surface)
+food.genFood()
 
 
 while (True):
@@ -36,10 +39,18 @@ while (True):
             elif event.key == pygame.K_UP:
                 snake.changeDirTo(cf.UP)
 
+    #draw food
+    food.draw()
+
     # draw snake
     snake.draw()
 
     # move snake
-    snake.move()
+    isFoodAte = snake.foodIsAte(food.x, food.y)
+    if isFoodAte:
+        snake.move(isFoodAte)
+        food.genFood()
+    else:
+        snake.move()
 
     pygame.display.flip()
