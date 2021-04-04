@@ -30,5 +30,9 @@ LINE_W = 1
 # snake color
 SNAKE_COLOR = WHITE
 
+# snake default lenth
+SNAKE_DEFAULT_LENGTH = 4
+
 # apple color
 APPLE_COLOR = GREEN
+
