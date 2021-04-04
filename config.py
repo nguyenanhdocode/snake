@@ -1,6 +1,6 @@
 # window width andh height
 R = 20
-C = 20
+C = 18
 
 # size of square
 C_S = 30
@@ -8,7 +8,7 @@ C_S = 30
 RIGHT_SPACE = 200
 
 
-W = 600 + RIGHT_SPACE
+W = C_S * C + RIGHT_SPACE
 H = 600
 
 
@@ -22,9 +22,13 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0, 0)
 RED = (255, 0, 0)
 GRAY = (128, 128, 128)
+GREEN = (0, 255, 0)
 
 # with of line
 LINE_W = 1
 
 # snake color
 SNAKE_COLOR = WHITE
+
+# apple color
+APPLE_COLOR = GREEN

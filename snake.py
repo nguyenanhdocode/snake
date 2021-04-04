@@ -36,15 +36,15 @@ class Snake:
         self.dots[0].y += cfg.C_S * yDirection
 
         # when the snake touches the edges
-        if self.dots[0].x >= cfg.W - cfg.RIGHT_SPACE - cfg.C_S:
+        if self.dots[0].x >= cfg.W - cfg.RIGHT_SPACE:
             self.dots[0].x = 0
         
         if self.dots[0].x < 0:
-            self.dots[0].x = cfg.W - cfg.RIGHT_SPACE - 2 * cfg.C_S
+            self.dots[0].x = cfg.W - cfg.RIGHT_SPACE - cfg.C_S
 
-        if self.dots[0].y >= cfg.H:
+        if self.dots[0].y > cfg.H:
             self.dots[0].y = 0
         
         if self.dots[0].y < 0:
-            self.dots[0].y = cfg.H - cfg.C_S
+            self.dots[0].y = cfg.H
         

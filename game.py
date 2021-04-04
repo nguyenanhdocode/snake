@@ -6,17 +6,25 @@
 import pygame
 import config as cfg
 from snake import Snake
+from apple import Apple
 
 pygame.init()
 
 clock = pygame.time.Clock()
+eatApple = False
 window = pygame.display.set_mode(cfg.WND_SIZE)
+
+
 pygame.display.set_caption("Snake")
 
 
 
 # create snake
 snake = Snake(window, cfg.SNAKE_COLOR)
+
+
+# create apple
+apple = Apple(window, cfg.APPLE_COLOR)
 
 # x, y direction
 # x = 0 (not move), x = 1 (move right), x = -1 (move left)
@@ -26,10 +34,10 @@ yDirection = 0
 
 # DRAW GRID LINES
 def drawGird():
-    for i in range(cfg.R):
-        pygame.draw.line(window, cfg.GRAY, (0, i * cfg.C_S), (cfg.W - cfg.RIGHT_SPACE - cfg.C_S, i * cfg.C_S), cfg.LINE_W)
+    for i in range(cfg.R + 1):
+        pygame.draw.line(window, cfg.GRAY, (0, i * cfg.C_S), (cfg.W - cfg.RIGHT_SPACE, i * cfg.C_S), cfg.LINE_W)
 
-    for i in range(cfg.C):
+    for i in range(cfg.C + 1):
         pygame.draw.line(window, cfg.GRAY, (i * cfg.C_S, 0), (i * cfg.C_S, cfg.H), cfg.LINE_W)
 
 
@@ -71,8 +79,17 @@ while True:
     # draw snake
     snake.draw()
 
+    # draw apple
+    apple.draw()
+
     # move
-    snake.move(xDirection, yDirection, False)
+    if (snake.dots[0].x == apple.x and snake.dots[0].y == apple.y):
+        eatApple = True
+
+        # crate new apple
+        apple = Apple(window, cfg.APPLE_COLOR)
+
+    snake.move(xDirection, yDirection, eatApple)
 
     # draw grid
     drawGird()
