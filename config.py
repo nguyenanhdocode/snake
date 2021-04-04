@@ -20,3 +20,6 @@ GRAY = (128, 128, 128)
 
 # with of line
 LINE_W = 1
+
+# snake color
+SNAKE_COLOR = RED
