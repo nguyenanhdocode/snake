@@ -27,10 +27,11 @@ yDirection = 0
 # DRAW GRID LINES
 def drawGird():
     for i in range(cfg.R):
-        pygame.draw.line(window, cfg.GRAY, (0, i * cfg.C_S), (cfg.W, i * cfg.C_S), cfg.LINE_W)
+        pygame.draw.line(window, cfg.GRAY, (0, i * cfg.C_S), (cfg.W - cfg.RIGHT_SPACE - cfg.C_S, i * cfg.C_S), cfg.LINE_W)
 
     for i in range(cfg.C):
         pygame.draw.line(window, cfg.GRAY, (i * cfg.C_S, 0), (i * cfg.C_S, cfg.H), cfg.LINE_W)
+
 
 # main loop
 while True:

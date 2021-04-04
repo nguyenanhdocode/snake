@@ -5,8 +5,13 @@ C = 20
 # size of square
 C_S = 30
 
-W = 600
+RIGHT_SPACE = 200
+
+
+W = 600 + RIGHT_SPACE
 H = 600
+
+
 WND_SIZE = (W, H)
 
 # framerate
@@ -22,4 +27,4 @@ GRAY = (128, 128, 128)
 LINE_W = 1
 
 # snake color
-SNAKE_COLOR = RED
+SNAKE_COLOR = WHITE
